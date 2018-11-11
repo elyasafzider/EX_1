@@ -13,12 +13,12 @@ public class LinePlotTest extends JFrame  {
 	   public LinePlotTest() {
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        setSize(800, 600);
-	        Polynom poly = new Polynom("-2x^2+2");
+	        Polynom poly = new Polynom("-2x^2+2x^1");
 	        // Insert rest of the code here
 	        DataTable data = new DataTable(Double.class, Double.class);
 	        DataTable data2 = new DataTable(Double.class, Double.class);
-	        Polynom poly_nigzeret = new Polynom("-4x^1");
-	        double kizon = poly_nigzeret.root(-0.5, 0.5, 0.25);
+	        Polynom poly_nigzeret = new Polynom("-4x^1+2");
+	        double kizon = poly_nigzeret.root(-0.5, 0.5, 0.001);
 	        data2.add(kizon,poly.f(kizon));
 	        for (double x = -5.0; x <= 5.0; x+=0.25) {
 	            double y = poly.f(x);
