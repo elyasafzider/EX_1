@@ -2,7 +2,9 @@
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
+
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
  * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral
@@ -30,6 +32,7 @@ public class Polynom implements Polynom_able{
 	 * this constructor creator new polynom of string
 	 * @param str string
 	 */
+	/*
 	public Polynom(String str)
 	{
 		try {												
@@ -76,6 +79,76 @@ public class Polynom implements Polynom_able{
 		{
 			//e.printStackTrace();
 			System.out.println("failed at constructor with string");		//if not polynom
+		}
+	}
+	*/
+	public Polynom(String s)
+	{
+		Polynom ans = new Polynom();
+		if(s.equals("Polynom is Empty"))
+		{
+			return;
+		}
+		ans = string_test(s);
+		Iterator<Monom> iter = ans.iteretor();
+		while(iter.hasNext())
+		{
+			Monom m = iter.next();
+			this.add(m);
+		}
+	}
+	private Polynom string_test(String s)
+	{
+		if(s==null)
+		{
+			throw new RuntimeException("Cant Init from Null!!");
+		}
+		Polynom ans = new Polynom();
+		s = s.toLowerCase();
+		int minues_index=0;
+		if((minues_index = s.indexOf('-',1))!=-1 && s.charAt(minues_index-1)!='^')
+		{
+			ArrayList<Integer> index = new ArrayList<Integer>();
+			for(int i=1;(i = s.indexOf('-', i+1)) != -1 ;i++)
+			{
+				index.add(i);
+			}
+			int index2 = 0;
+			Iterator<Integer> iter = index.iterator();
+			if(iter.hasNext() == false)
+			{
+				for(int i=0;(i = s.indexOf('-', i+1)) != -1 ;i++)
+				{
+					index.add(i);
+				}
+			}
+			iter = index.iterator();
+			while(iter.hasNext())
+			{
+				int ind = iter.next();
+				ind+=index2;
+				String temp = s;
+				s=temp.substring(0, ind)+'+'+temp.substring(ind,temp.length());
+				index2++;
+			}
+		}
+		
+		if(s.indexOf('+')!=-1)
+		{
+			StringTokenizer st = new StringTokenizer(s,"+");
+			while(st.hasMoreTokens())
+			{
+				String s1 = st.nextToken();
+				Monom m = new Monom(s1);
+				ans.add(m);
+			}
+			return ans;
+		}
+		else
+		{
+			Monom m = new Monom(s);
+			ans.add(m);
+			return ans;
 		}
 	}
 

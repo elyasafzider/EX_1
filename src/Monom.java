@@ -127,5 +127,105 @@ public class Monom implements function{
 	{
 		return _coefficient+"x^"+_power;
 	}
+	
+	public Monom(String s){
+		s = s.toLowerCase();
+		String temp = "";
+		int index=0;
+		double a=0;
+		int b=0;
+
+		if((index = s.indexOf('x'))!=-1)
+		{
+			if(index+2<s.length() && index!=0)
+			{
+				if(s.charAt(index+1)=='^')
+				{
+					try
+					{
+						if(s.charAt(0) == '-' && index==1)
+						{
+							a = -1;
+						}
+						else
+						{
+							a = Double.parseDouble(s.substring(0,index));
+						}
+						b = Integer.parseInt(s.substring(index+2,s.length()));
+					}
+					catch (Exception e) {
+						throw new RuntimeException("Syntax is not allow for Init!!");
+					}
+
+				}
+				else
+				{
+					throw new RuntimeException("Syntax is not allow for Init!!");
+				}
+			}
+			else if(index+1==s.length())
+			{
+				b=1;
+				if(s.length()==1)
+				{
+					a=1;
+				}
+				else if(s.charAt(0)=='-')
+				{
+					if(index==1)
+					{
+						a=-1;
+					}
+					else
+					{
+						a = Double.parseDouble(s.substring(0,index));
+					}
+
+				}
+				else
+				{
+					try
+					{
+						temp = s.substring(0, index);
+						a = Double.parseDouble(temp);
+					}
+					catch (Exception e) {
+						throw new RuntimeException("Syntax is not allow for Init!!");
+					}
+				}
+			}
+			else if(index==0)
+			{
+				a=1;
+				try
+				{
+					b=Integer.parseInt(s.substring(index+2,s.length()));
+				}
+				catch (Exception e) {
+					throw new RuntimeException("Syntax is not allow for Init!!");
+				}
+
+			}
+			else
+			{
+				throw new RuntimeException("Syntax is not allow for Init!!");
+			}
+
+		}
+		else
+		{
+			try
+			{
+				a = Double.parseDouble(s);
+			}
+			catch (Exception e) {
+				throw new RuntimeException("Syntax is not allow for Init!!");
+			}
+		}
+
+		this.set_coefficient(a);
+		this.set_power(b);
+
+	}
 
 }
