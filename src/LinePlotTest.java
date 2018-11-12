@@ -12,7 +12,7 @@ import de.erichseifert.gral.plots.points.LabelPointRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
 
 public class LinePlotTest extends JFrame  {
-	
+ 
 	   public LinePlotTest() {
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        setSize(600, 600);
