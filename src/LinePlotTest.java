@@ -1,11 +1,14 @@
 import java.awt.Color;
+import java.lang.invoke.LambdaConversionException;
 
 import javax.swing.JFrame;
 
 import de.erichseifert.gral.data.DataTable;
+import de.erichseifert.gral.graphics.Label;
 import de.erichseifert.gral.plots.XYPlot;
 import de.erichseifert.gral.plots.lines.DefaultLineRenderer2D;
 import de.erichseifert.gral.plots.lines.LineRenderer;
+import de.erichseifert.gral.plots.points.LabelPointRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
 
 public class LinePlotTest extends JFrame  {
@@ -44,7 +47,7 @@ public class LinePlotTest extends JFrame  {
 	        data3.add(x_kizon+0.8,y_kizon+5);
 	        data3.add(x_kizon,y_kizon+1);
 	        
-	        
+	        System.out.println();
 	        plot.add(data2);
 	        plot.add(data3);
 	        plot.setLineRenderers(data, lines);
@@ -57,7 +60,6 @@ public class LinePlotTest extends JFrame  {
 	        plot.getPointRenderers(data3).get(0).setColor(color2);
 	        plot.getLineRenderers(data3).get(0).setColor(color2);
 	        getContentPane().add(new InteractivePanel(plot));
-	        
 	    }
 	   
 	   
