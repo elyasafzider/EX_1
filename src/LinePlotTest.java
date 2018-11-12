@@ -14,7 +14,7 @@ import de.erichseifert.gral.ui.InteractivePanel;
 public class LinePlotTest extends JFrame  {
  
 	   public LinePlotTest() {
-	        setDefaultCloseOperation(EXIT_ON_CLOSE);
+	        setDefaultCloseOperation(EXIT_ON_CLOSE); 
 	        setSize(600, 600);
 	        Polynom poly = new Polynom("0.2x^4-1.5x^3+3.0x^2-1x-5");
 	        Polynom_able poly_deriv = new Polynom();
