@@ -459,5 +459,18 @@ public class Polynom implements Polynom_able{
 		return false;
 		
 	}
+	public double upArea(double x0, double x1, double eps) { 
+		double area =0;
+		int numOfRec =(int)((x1-x0)/eps);					
+		for (int i = 1; i < numOfRec; i++) 
+		{
+			double x2 = x0+i*eps;							
+			double y2 = f(x2);	
+			if(y2<0)
+				area= area+ y2*eps;
+		}
+
+		return Math.abs(area);
+	}
 
 }
