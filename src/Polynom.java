@@ -364,6 +364,7 @@ public class Polynom implements Polynom_able{
 	 */
 	@Override
 	public Polynom_able copy() {
+		
 
 		Polynom newPoly = new Polynom();
 		Iterator <Monom> itr = iteretor();
