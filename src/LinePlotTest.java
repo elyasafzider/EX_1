@@ -26,7 +26,6 @@ public class LinePlotTest extends JFrame  {
 	        DataTable data2 = new DataTable(Double.class, Double.class);
 	        DataTable data3 = new DataTable(Double.class, Double.class);
 	        double x_kizon = poly_deriv.root(3, 5, 0.01);
-	        System.out.println(x_kizon);
 	        double y_kizon = poly.f(x_kizon);
 	        data2.add(x_kizon,y_kizon);
 	        for (double x = x0; x <= x1; x+=0.01) {

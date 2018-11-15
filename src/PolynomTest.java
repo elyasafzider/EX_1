@@ -25,7 +25,7 @@ public class PolynomTest {
 	public void testMonomOperations()
 	{
 		
-		Polynom p1 =new Polynom("1*x^1");
+		Polynom p1 =new Polynom("1x^1");
 		System.out.println(p1);
 		p1.add(m2);
 		System.out.println(p1);
@@ -37,15 +37,6 @@ public class PolynomTest {
 		
 
 
-	}
-
-
-
-
-	@Test
-	public void test() {
-		while (true);
-		//		fail("Not yet implemented");
 	}
 
 }

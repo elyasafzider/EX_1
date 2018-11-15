@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
  * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral
@@ -24,8 +25,7 @@ public class Polynom implements Polynom_able{
 	 */
 	public Polynom()
 	{
-		Monom m1 = new Monom(0,0);			//creat new monom "0x^0"
-		add(m1);							//add the monom to this polynom
+		mList = new ArrayList<Monom>();
 	}
 
 	/**
