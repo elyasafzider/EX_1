@@ -45,11 +45,10 @@ public class LinePlotTest extends JFrame  {
 			double y = poly.f(x);
 			data.add(x, y);
 		}
-		double eps2 = eps;
 		
 		ArrayList<Long> arr = new ArrayList<>();
-		for (double x = x0; x <= x1; x+=eps2) {
-			if(poly_deriv.f(x-eps2)>0 && poly_deriv.f(x+eps2)<0)
+		for (double x = x0; x <= x1; x+=eps) {
+			if(poly_deriv.f(x-eps)>0 && poly_deriv.f(x+eps)<0)
 			{
 				if(!arr.contains(Math.round(x)))
 				{
@@ -58,7 +57,7 @@ public class LinePlotTest extends JFrame  {
 					data2.add(x,poly.f(x));
 				}
 			}
-			if(poly_deriv.f(x-eps2)<0 && poly_deriv.f(x+eps2)>0)
+			if(poly_deriv.f(x-eps)<0 && poly_deriv.f(x+eps)>0)
 			{
 				if(!arr.contains(Math.round(x)))
 				{
