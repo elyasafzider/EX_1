@@ -38,9 +38,6 @@ public class LinePlotTest extends JFrame  {
 		// Insert rest of the code here
 		DataTable data = new DataTable(Double.class, Double.class); 
 		DataTable data2 = new DataTable(Double.class, Double.class);
-		DataTable data3 = new DataTable(Double.class, Double.class);
-
-
 		for (double x = x0; x <= x1; x+=eps) {
 			double y = poly.f(x);
 			data.add(x, y);
@@ -53,7 +50,7 @@ public class LinePlotTest extends JFrame  {
 				if(!arr.contains(Math.round(x)))
 				{
 					arr.add(Math.round(x));
-					System.out.println("x is:"+x+" and y' is:"+poly_deriv.f(x));
+					System.out.println("x is:"+x+" and y' is:"+poly.f(x));
 					data2.add(x,poly.f(x));
 				}
 			}
@@ -62,7 +59,7 @@ public class LinePlotTest extends JFrame  {
 				if(!arr.contains(Math.round(x)))
 				{
 					arr.add(Math.round(x));
-					System.out.println("x is:"+x+" and y' is:"+poly_deriv.f(x));
+					System.out.println("x is:"+x+" and y' is:"+poly.f(x));
 					data2.add(x,poly.f(x));
 				}
 
@@ -76,16 +73,14 @@ public class LinePlotTest extends JFrame  {
 
 		System.out.println();
 		plot.add(data2);
-		plot.add(data3);
 		plot.setLineRenderers(data, lines);
-		plot.setLineRenderers(data3, lines2);
 		Color color = new Color(0.1f, 0.75f, 0.5f);
 		Color color2 = new Color(1.0f, 0.0f, 0.0f);
+		plot.getPointRenderers(data2).get(0).setValueVisible(true);
+		plot.getPointRenderers(data2).get(0).setValueAlignmentY(plot.getPointRenderers(data2).get(0).getValueAlignmentY()+1.0);
 		plot.getPointRenderers(data).get(0).setColor(color);
 		plot.getLineRenderers(data).get(0).setColor(color);
 		plot.getPointRenderers(data2).get(0).setColor(color2);
-		plot.getPointRenderers(data3).get(0).setColor(color2);
-		plot.getLineRenderers(data3).get(0).setColor(color2);
 		getContentPane().add(new InteractivePanel(plot));
 	}
 
