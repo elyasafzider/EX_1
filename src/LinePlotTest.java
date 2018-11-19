@@ -9,7 +9,7 @@ import de.erichseifert.gral.plots.XYPlot;
 import de.erichseifert.gral.plots.lines.DefaultLineRenderer2D;
 import de.erichseifert.gral.plots.lines.LineRenderer;
 import de.erichseifert.gral.plots.points.LabelPointRenderer;
-import de.erichseifert.gral.ui.InteractivePanel;
+import de.erichseifert.gral.ui.InteractivePanel; 
 
 public class LinePlotTest extends JFrame  {
  
