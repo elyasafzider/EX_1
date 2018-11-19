@@ -29,7 +29,6 @@ import de.erichseifert.gral.plots.points.LabelPointRenderer;
 import de.erichseifert.gral.ui.InteractivePanel; 
 
 public class LinePlotTest extends JFrame  {
-<<<<<<< HEAD
  
 	   public LinePlotTest() {
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);  
@@ -79,15 +78,6 @@ public class LinePlotTest extends JFrame  {
 	        plot.getLineRenderers(data3).get(0).setColor(color2);
 	        getContentPane().add(new InteractivePanel(plot));
 	    }
-	   
-	   
-	   
-	   
-	    public static void main(String[] args) {
-	        LinePlotTest frame = new LinePlotTest();
-	        frame.setVisible(true);
-=======
->>>>>>> refs/remotes/origin/master
 
 	public LinePlotTest(Polynom poly,double x0, double x1, double eps) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
